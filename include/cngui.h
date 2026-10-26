@@ -32,6 +32,16 @@ typedef struct {
     int height;             // Window height in pixels
 } cn_init_params;
 
+
+/* Add this to cngui.h before the extern "C" closing brace */
+
+typedef struct {
+    uint32_t clear_color; // RGBA
+} cn_draw_data;
+
+/* Add this to your function declarations */
+const cn_draw_data* cn_get_draw_data(const cn_context* ctx);
+
 /* 
  * Lifecycle & ABI
  */
