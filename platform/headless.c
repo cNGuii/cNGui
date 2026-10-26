@@ -3,29 +3,39 @@
 
 int main(void) {
     cn_init_params params = { sizeof(cn_init_params), "cNGui Test", 800, 600 };
-    
-    // 1. Init
     cn_context* ctx = cn_init(&params);
-    if (!ctx) return 1;
 
-    // 2. Frame Loop
-    int frames = 0;
-    while (!cn_should_close(ctx) && frames < 1) {
+    // Let's create a button at X=50, Y=50, Width=100, Height=40
+    cn_rect button_bounds = { 50.0f, 50.0f, 100.0f, 40.0f };
+
+    for (int frames = 0; frames < 3; frames++) {
         cn_begin_frame(ctx);
-        
-        // (Widgets will go here in M2)
-        
-        cn_end_frame(ctx);
 
-        // 3. Consume Draw Data
-        const cn_draw_data* draw_data = cn_get_draw_data(ctx);
-        printf("Frame %d: Clear Color is 0x%08X\n", frames, draw_data->clear_color);
+        // Mock Input
+        cn_input_state input = { 0 };
+        if (frames == 1) {
+            printf("[Frame 1] Simulating click at (60, 60) - INSIDE button.\n");
+            input.x = 60.0f; input.y = 60.0f;
+            input.is_mouse_clicked = 1;
+        } else if (frames == 2) {
+            printf("[Frame 2] Simulating click at (10, 10) - OUTSIDE button.\n");
+            input.x = 10.0f; input.y = 10.0f;
+            input.is_mouse_clicked = 1;
+        }
         
-        frames++;
+        // Send input to Rust
+        cn_set_input(ctx, &input);
+
+        // Test the button!
+        if (cn_button(ctx, button_bounds, "Click Me")) {
+            printf("  -> RESULT: Button returned TRUE (Clicked!)\n");
+        } else {
+            printf("  -> RESULT: Button returned FALSE\n");
+        }
+
+        cn_end_frame(ctx);
     }
 
-    // 4. Shutdown
     cn_shutdown(ctx);
-    printf("Clean shutdown.\n");
     return 0;
 }
