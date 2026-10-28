@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+4da536620cc252d3fa5c54db76edc1e9 /data/data/com.termux/files/home/cngui/target/debug/libcngui.a
+56ccc6e174a61c1fb6d15f0cbe354ecf CMakeFiles/rust_core

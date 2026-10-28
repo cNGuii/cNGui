@@ -1,0 +1,1 @@
+/data/data/com.termux/files/usr/bin/cc -O2 -g -DNDEBUG -Xlinker --dependency-file=CMakeFiles/example_c.dir/link.d CMakeFiles/example_c.dir/examples/c/main.c.o -o example_c  libcngui_platform.a /data/data/com.termux/files/home/cngui/target/debug/libcngui.a

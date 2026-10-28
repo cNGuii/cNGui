@@ -1,0 +1,2 @@
+/data/data/com.termux/files/usr/bin/llvm-ar qc libcngui_platform.a CMakeFiles/cngui_platform.dir/platform/headless.c.o
+/data/data/com.termux/files/usr/bin/llvm-ranlib libcngui_platform.a

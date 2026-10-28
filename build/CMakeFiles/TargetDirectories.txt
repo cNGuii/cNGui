@@ -1,0 +1,6 @@
+/data/data/com.termux/files/home/cngui/build/CMakeFiles/rust_core.dir
+/data/data/com.termux/files/home/cngui/build/CMakeFiles/cngui_platform.dir
+/data/data/com.termux/files/home/cngui/build/CMakeFiles/example_c.dir
+/data/data/com.termux/files/home/cngui/build/CMakeFiles/example_cpp.dir
+/data/data/com.termux/files/home/cngui/build/CMakeFiles/edit_cache.dir
+/data/data/com.termux/files/home/cngui/build/CMakeFiles/rebuild_cache.dir
